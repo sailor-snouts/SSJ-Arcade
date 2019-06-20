@@ -141,4 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: Main
-  selectSFX: {fileID: 0}
+  selectSFX: {fileID: 8300000, guid: 100da485107894c429e7d85242cf0334, type: 3}
