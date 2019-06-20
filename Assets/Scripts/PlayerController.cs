@@ -5,11 +5,26 @@ using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     private int score;
+    [SerializeField]
     private int combo;
 
     private int playerId = 0;
     private Player player;
+
+    [SerializeField]
+    private Pickup redPickup;
+    [SerializeField]
+    private Pickup bluePickup;
+    [SerializeField]
+    private Pickup greenPickup;
+    [SerializeField]
+    private Pickup orangePickup;
+    [SerializeField]
+    private Pickup pinkPickup;
+    [SerializeField]
+    private Pickup blackPickup;
 
     // Start is called before the first frame update
     void Start()
@@ -22,27 +37,51 @@ public class PlayerController : MonoBehaviour
     {
         if (this.player.GetButtonDown("Red"))
         {
-            Debug.Log(this.player + "Pressed Red");
+            if(this.redPickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
         if (this.player.GetButtonDown("Blue"))
         {
-            Debug.Log(this.player + "Pressed Blue");
+            if (this.bluePickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
         if (this.player.GetButtonDown("Green"))
         {
-            Debug.Log(this.player + "Pressed Green");
+            if (this.greenPickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
         if (this.player.GetButtonDown("Orange"))
         {
-            Debug.Log(this.player + "Pressed Orange");
+            if (this.orangePickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
         if (this.player.GetButtonDown("Pink"))
         {
-            Debug.Log(this.player + "Pressed Pink");
+            if (this.pinkPickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
         if (this.player.GetButtonDown("Black"))
         {
-            Debug.Log(this.player + "Pressed Black");
+            if (this.blackPickup.PlayNote())
+            {
+                this.combo++;
+                this.score++;
+            }
         }
     }
 }
