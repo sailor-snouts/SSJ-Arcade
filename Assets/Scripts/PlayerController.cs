@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,9 +8,8 @@ public class PlayerController : MonoBehaviour
     private int score;
     [SerializeField]
     private int combo;
-
-    private int playerId = 0;
-    private Player player;
+    [SerializeField]
+    private float multiplier = 1f;
 
     [SerializeField]
     private Pickup redPickup;
@@ -20,68 +18,58 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Pickup greenPickup;
     [SerializeField]
-    private Pickup orangePickup;
-    [SerializeField]
-    private Pickup pinkPickup;
-    [SerializeField]
-    private Pickup blackPickup;
-
-    // Start is called before the first frame update
+    private Pickup missedPickup;
+    
     void Start()
     {
-        this.player = ReInput.players.GetPlayer(this.playerId);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (this.player.GetButtonDown("Red"))
+        int hit = 0;
+        if(missedPickup.PlayNote() != 0)
         {
-            if(this.redPickup.PlayNote())
+            Debug.Log("missed a note");
+            this.combo = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Q))
+        {
+            hit = this.redPickup.PlayNote();
+            if (hit > 0)
             {
-                this.combo++;
-                this.score++;
+                this.ScoreUp(hit);
             }
         }
-        if (this.player.GetButtonDown("Blue"))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.W))
         {
-            if (this.bluePickup.PlayNote())
+            hit = this.greenPickup.PlayNote();
+            if (hit > 0)
             {
-                this.combo++;
-                this.score++;
+                this.ScoreUp(hit);
             }
         }
-        if (this.player.GetButtonDown("Green"))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.E))
         {
-            if (this.greenPickup.PlayNote())
+            hit = this.bluePickup.PlayNote();
+            if (hit > 0)
             {
-                this.combo++;
-                this.score++;
+                this.ScoreUp(hit);
             }
         }
-        if (this.player.GetButtonDown("Orange"))
+    }
+
+    void ScoreUp(int hit)
+    {
+        this.combo++;
+        this.multiplier = this.combo % 4f;
+        switch(hit)
         {
-            if (this.orangePickup.PlayNote())
-            {
-                this.combo++;
-                this.score++;
-            }
-        }
-        if (this.player.GetButtonDown("Pink"))
-        {
-            if (this.pinkPickup.PlayNote())
-            {
-                this.combo++;
-                this.score++;
-            }
-        }
-        if (this.player.GetButtonDown("Black"))
-        {
-            if (this.blackPickup.PlayNote())
-            {
-                this.combo++;
-                this.score++;
-            }
+            case 1:
+                this.score += (int) this.multiplier * 100; 
+                break;
+            case 2:
+                this.score += (int) this.multiplier * (int) this.multiplier * 100;
+                break;
         }
     }
 }
