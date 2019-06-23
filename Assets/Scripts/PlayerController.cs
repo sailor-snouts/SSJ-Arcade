@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private int score;
-    [SerializeField]
-    private int combo;
-    [SerializeField]
+    private int score = 0;
+    private int combo = 0;
     private float multiplier = 1f;
+    [SerializeField]
+    TextMeshProUGUI scoreText;
+    [SerializeField]
+    TextMeshProUGUI comboText;
 
     [SerializeField]
     private Pickup redPickup;
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
     void ScoreUp(int hit)
     {
         this.combo++;
-        this.multiplier = this.combo % 4f;
+        this.multiplier = Mathf.Clamp(this.combo % 4f, 1, 10);
         switch(hit)
         {
             case 1:
@@ -71,5 +73,11 @@ public class PlayerController : MonoBehaviour
                 this.score += (int) this.multiplier * (int) this.multiplier * 100;
                 break;
         }
+    }
+
+    private void OnGUI()
+    {
+        this.scoreText.SetText("Score: \n {0}", this.score);
+        this.comboText.SetText("Combo: \n {0}", this.combo);
     }
 }
