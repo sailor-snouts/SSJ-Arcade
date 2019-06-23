@@ -30,7 +30,7 @@ public class NoteGenerator : MonoBehaviour
 
         float offset = (60 / this.bpm) * this.velocity;
 
-        for (int i = 1; i < lines.Length; i++)
+        for (int i = 2; i < lines.Length; i++)
         {
             if(lines[i][0] == '1')
             {

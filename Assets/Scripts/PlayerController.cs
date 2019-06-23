@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         int hit = 0;
         if(missedPickup.PlayNote() != 0)
         {
-            Debug.Log("missed a note");
             this.combo = 0;
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Q))

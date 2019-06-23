@@ -242,7 +242,6 @@ GameObject:
   - component: {fileID: 631970437}
   - component: {fileID: 631970436}
   - component: {fileID: 631970435}
-  - component: {fileID: 631970439}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -350,27 +349,6 @@ Transform:
   m_Father: {fileID: 660138142}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &631970439
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631970434}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &660138141
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +358,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660138142}
-  - component: {fileID: 660138143}
   m_Layer: 0
   m_Name: Target Bar
   m_TagString: Untagged
@@ -406,54 +383,6 @@ Transform:
   m_Father: {fileID: 1606529539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &660138143
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660138141}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5be4e0ee8736a34281289a50adad90b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 7, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &834043034
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +395,6 @@ GameObject:
   - component: {fileID: 834043037}
   - component: {fileID: 834043036}
   - component: {fileID: 834043038}
-  - component: {fileID: 834043039}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -574,27 +502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &834043039
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834043034}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &1116281295
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +514,6 @@ GameObject:
   - component: {fileID: 1116281298}
   - component: {fileID: 1116281297}
   - component: {fileID: 1116281299}
-  - component: {fileID: 1116281300}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Untagged
@@ -715,27 +621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1116281300
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116281295}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &1128439038
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +633,6 @@ GameObject:
   - component: {fileID: 1128439041}
   - component: {fileID: 1128439040}
   - component: {fileID: 1128439042}
-  - component: {fileID: 1128439043}
   m_Layer: 0
   m_Name: Destroy Bar
   m_TagString: Untagged
@@ -856,27 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1128439043
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128439038}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!1 &1386515905
 GameObject:
   m_ObjectHideFlags: 0
