@@ -16,19 +16,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Pickup redPickup;
     [SerializeField]
+    private Pickup greenPickup;
+    [SerializeField]
     private Pickup bluePickup;
     [SerializeField]
-    private Pickup greenPickup;
+    private Pickup yellowPickup;
     [SerializeField]
     private Pickup missedPickup;
     
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
     }
     
     void Update()
     {
         int hit = 0;
+
         if(missedPickup.PlayNote() != 0)
         {
             this.combo = 0;
@@ -52,6 +56,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.E))
         {
             hit = this.bluePickup.PlayNote();
+            if (hit > 0)
+            {
+                this.ScoreUp(hit);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.R))
+        {
+            hit = this.yellowPickup.PlayNote();
             if (hit > 0)
             {
                 this.ScoreUp(hit);

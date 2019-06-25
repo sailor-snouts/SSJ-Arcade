@@ -5,51 +5,66 @@ using UnityEngine;
 public class NoteGenerator : MonoBehaviour
 {
     [SerializeField]
-    private GameObject RedNote;
+    private GameObject[] runes;
     [SerializeField]
-    private GameObject GreenNote;
+    private GameObject endNote;
     [SerializeField]
-    private GameObject BlueNote;
+    private Transform redNoteSpawn;
     [SerializeField]
-    private Transform RedNoteSpawn;
+    private Transform greenNoteSpawn;
     [SerializeField]
-    private Transform GreenNoteSpawn;
+    private Transform blueNoteSpawn;
     [SerializeField]
-    private Transform BlueNoteSpawn;
+    private Transform yellowNoteSpawn;
     [SerializeField]
     private TextAsset notesDataFile;
 
-    private int bpm = 60;
-    private int velocity = 10;
+    private float bpm = 60;
+    private float velocity = 10;
 
     void Start()
     {
         string[] lines = this.notesDataFile.text.Split('\n');
-        this.bpm = int.Parse(lines[0]);
-        this.velocity = int.Parse(lines[1]);
+        this.bpm = float.Parse(lines[0]);
+        this.velocity = float.Parse(lines[1]);
 
         float offset = (60 / this.bpm) * this.velocity;
 
-        for (int i = 2; i < lines.Length; i++)
+        int i;
+        for (i = 2; i < lines.Length; i++)
         {
             if(lines[i][0] == '1')
             {
-                GameObject red = Instantiate(this.RedNote, this.RedNoteSpawn);
+                GameObject red = Instantiate(this.GetRandRune(), this.redNoteSpawn);
                 red.GetComponent<NoteController>().speed = this.velocity;
                 red.transform.position += Vector3.up * i * offset;
             }
             if (lines[i][1] == '1')
             {
-                GameObject green = Instantiate(this.GreenNote, this.GreenNoteSpawn);
+                GameObject green = Instantiate(this.GetRandRune(), this.greenNoteSpawn);
                 green.GetComponent<NoteController>().speed = this.velocity;
                 green.transform.position += Vector3.up * i * offset;
             }
             if (lines[i][2] == '1')
             {
-                GameObject blue = Instantiate(this.BlueNote, this.BlueNoteSpawn);
+                GameObject blue = Instantiate(this.GetRandRune(), this.blueNoteSpawn);
                 blue.GetComponent<NoteController>().speed = this.velocity;
                 blue.transform.position += Vector3.up * i * offset;
             }
+            if (lines[i][3] == '1')
+            {
+                GameObject yellow = Instantiate(this.GetRandRune(), this.yellowNoteSpawn);
+                yellow.GetComponent<NoteController>().speed = this.velocity;
+                yellow.transform.position += Vector3.up * i * offset;
+            }
         }
+
+        GameObject end = Instantiate(this.endNote, this.redNoteSpawn);
+        end.transform.position += Vector3.up * i * offset;
+    }
+
+    GameObject GetRandRune()
+    {
+        return this.runes[Random.Range(0, this.runes.Length)];
     }
 }

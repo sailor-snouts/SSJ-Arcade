@@ -17,6 +17,10 @@ public class Pickup : MonoBehaviour
         {
             this.notes.Add(collision.gameObject);
         }
+        else if(collision.gameObject.tag == "EndNote")
+        {
+            Debug.Log("Game over");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,11 +56,9 @@ public class Pickup : MonoBehaviour
             // perfect hit
             if(dist < 0.1f)
             {
-                Debug.Log("perfect");
                 return 2;
             }
-
-            Debug.Log("Good");
+            
             return 1;
         }
 
