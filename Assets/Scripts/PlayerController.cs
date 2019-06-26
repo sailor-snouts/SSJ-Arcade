@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int getScore()
+    {
+        return score;
+    }
+
     private void OnGUI()
     {
         this.scoreText.SetText("Score: \n {0}", this.score);
