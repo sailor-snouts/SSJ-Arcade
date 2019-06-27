@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Score
 --- !u!61 &631970436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1002,6 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Score
 --- !u!1 &891005384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Score
 --- !u!212 &894624158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1279,6 +1282,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1105763788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1631675110560245904, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037018237978812276, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5c6ccbdb3bccfc4eb53120ce4a74cc5, type: 3}
 --- !u!1 &1116281295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Score
 --- !u!1 &1128439038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128439038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.69, y: -7.28, z: 0}
+  m_LocalPosition: {x: 1.69, y: -10.27, z: 0}
   m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1606529539}
@@ -1517,6 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Score
 --- !u!1 &1386515905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1916,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c04d63c0eb3b443418f4c12dee040f89, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ef59b5cc3cbc2c04abdf56869367c81d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

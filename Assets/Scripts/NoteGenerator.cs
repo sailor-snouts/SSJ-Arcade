@@ -60,6 +60,7 @@ public class NoteGenerator : MonoBehaviour
         }
 
         GameObject end = Instantiate(this.endNote, this.redNoteSpawn);
+        end.GetComponent<NoteController>().speed = this.velocity;
         end.transform.position += Vector3.up * i * offset;
     }
 

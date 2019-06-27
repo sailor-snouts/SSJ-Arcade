@@ -5,10 +5,14 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private List<GameObject> notes;
+    private SceneChange sceneChange;
+    [SerializeField]
+    private string nextScene = "Score";
 
     private void Start()
     {
         this.notes = new List<GameObject>();
+        this.sceneChange = FindObjectOfType<SceneChange>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +23,7 @@ public class Pickup : MonoBehaviour
         }
         else if(collision.gameObject.tag == "EndNote")
         {
-            Debug.Log("Game over");
+            this.sceneChange.FadeToLevel(this.nextScene);
         }
     }
 
