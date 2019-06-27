@@ -2,13 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class NoteController : MonoBehaviour
 {
     public float speed = 1f;
-    
+    private Animator anim;
+    private BoxCollider2D box;
+
+    private void Start()
+    {
+        this.anim = GetComponent<Animator>();
+        this.box = GetComponent<BoxCollider2D>();
+    }
+
     void Update()
     {
         this.transform.position -= transform.up * this.speed * Time.deltaTime;
+    }
+
+    public void Pulse()
+    {
+        this.anim.SetTrigger("Hit");
+        this.box.enabled = false;
     }
 
     public void Die()

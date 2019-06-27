@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RuneR
+  m_Controller: {fileID: 9100000, guid: f15a7a6a94a8d1046b174c4436005cb7, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fda1e776d589f6549be2235b85f72e2c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6d4b0e03ca19b6e4a8697a17a7f0273e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8af1f611a3b5ae74f849b2150d985ec6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2e9f44e76ad3ef24785a8367d1fa53c7, type: 2}

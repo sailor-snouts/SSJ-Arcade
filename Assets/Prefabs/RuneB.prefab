@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6783129895771002555}
   - component: {fileID: 660174105929641718}
   - component: {fileID: 929034830012257285}
+  - component: {fileID: 4037557585622978581}
   m_Layer: 0
   m_Name: RuneB
   m_TagString: Note
@@ -142,3 +143,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!95 &4037557585622978581
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342475012888396311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f15a7a6a94a8d1046b174c4436005cb7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

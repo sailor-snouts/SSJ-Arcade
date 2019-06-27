@@ -48,7 +48,7 @@ public class Pickup : MonoBehaviour
             for (int i = 0; i < this.notes.Count; i++)
             {
                 dist = Vector2.Distance(this.gameObject.transform.position, this.notes[i].gameObject.transform.position);
-                this.notes[i].GetComponent<NoteController>().Die();
+                this.notes[i].GetComponent<NoteController>().Pulse();
             }
 
             this.notes = new List<GameObject>();
