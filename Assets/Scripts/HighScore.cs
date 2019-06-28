@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Text;
@@ -7,17 +6,22 @@ using System.IO;
 
 public class HighScore : MonoBehaviour
 {
-    
-    
-    List<Score> scores = new List<Score>();
-    private ScoreSort sort = new ScoreSort();
-    int playerScore;
-
     [SerializeField]
-    TextAsset scoreFile;
+    private TextAsset scoreFile;
+    [SerializeField]
+    private GameObject highScoreDisplayObject;
+    [SerializeField]
+    private AnyKeyChangeScene anyKeyChangeSceneObject;
+    [SerializeField]
+    private GameObject initialsInputObject;
+    
+    private List<Score> scores = new List<Score>();
+    private int playerScore;
+    private string playerID;
 
-    void Start()
+    void Awake()
     {
+        playerID = System.DateTime.Now.ToString();
         // JsonUtility can't read lists, so we've got to make each line its own json object to process
         string[] jsonObjects = scoreFile.text.Split('\n');
         for(int i = 0 ; i < jsonObjects.Length ; i++)
@@ -31,26 +35,44 @@ public class HighScore : MonoBehaviour
 
         // Added a null check for testing purposes. We can start the score scene without having a PlayerController carrying over from previous scenes
         PlayerController playerController = GetComponent<PlayerController>();
-        playerScore = playerController == null ? 0 : playerController.getScore();
-        Debug.Log("Is player high scoring?: " + isPlayerHighScoring(scores, playerScore));
+        playerScore = playerController == null ? 999 : playerController.getScore();
+
+        addNewScore(playerScore, "Hey look, I'm in the middle!", playerID);
+        writeHighScoresToFile(scores);
+        int playerPos = getPlayerPosition(scores, playerID);
+        displayScores(playerPos);
+        
     }
 
-    public static Boolean isPlayerHighScoring(List<Score> toCheck, int myScore)
+    private void displayScores(int playerPosition)
     {
-        toCheck.Sort(new ScoreSort());
-        return myScore > toCheck[toCheck.Count -1].score;
+        highScoreDisplayObject.SetActive(true);
+        HighScoreList listScript = highScoreDisplayObject.GetComponent<HighScoreList>();
+        listScript.playerPosition = playerPosition;
+        listScript.populateTable(scores);
+        anyKeyChangeSceneObject.gameObject.SetActive(true);
     }
 
-    public void addNewScore(int score, string initials)
+    private void addNewScore(int score, string initials, string playerID)
     {
-        scores.Sort(sort);
-        // Remove the lowest score before adding
-        scores.RemoveAt(scores.Count - 1);
-        scores.Add(new Score(score, initials));
+        scores.Add(new Score(score, initials, playerID));
     }
 
+    private int getPlayerPosition(List<Score> scores, string ID)
+    {
+        scores.Sort(new ScoreSort());
+        for(int i = 0 ; i < scores.Count ; i++)
+        {
+            if(scores[i].time == ID)
+            {
+                return i;
+            }
+        }
+        return scores.Count;
+    }
 
-    private void writeHighScores(List<Score> newScores)
+    #region output to file
+    private void writeHighScoresToFile(List<Score> newScores)
     {
         StringBuilder json = new StringBuilder();
         foreach(Score s in newScores)
@@ -64,7 +86,7 @@ public class HighScore : MonoBehaviour
         writer.WriteLine(json.ToString());
         writer.Close();
     }
-
+    #endregion
 }
 
 [Serializable]
@@ -72,14 +94,15 @@ public class Score
 {
     public int score;
     public string initials;
+    public string time;
 
-    public Score(int value, string initials)
+    public Score(int value, string initials, string time)
     {
         this.score = value;
         this.initials = initials;
+        this.time = time;
     }
 }
-
 
 public class ScoreSort : IComparer<Score>
 {
