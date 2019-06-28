@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -930,7 +930,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1042,6 +1042,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2126608888100114260, guid: 24abc999e71112f4d85fc2db73233fc0,
+        type: 3}
+      propertyPath: nextScene
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 5921949555641967579, guid: 24abc999e71112f4d85fc2db73233fc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1096,11 +1101,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2126608888100114260, guid: 24abc999e71112f4d85fc2db73233fc0,
-        type: 3}
-      propertyPath: nextScene
-      value: Title
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24abc999e71112f4d85fc2db73233fc0, type: 3}
