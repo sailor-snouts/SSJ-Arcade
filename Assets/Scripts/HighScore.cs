@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Text;
@@ -7,16 +6,16 @@ using System.IO;
 
 public class HighScore : MonoBehaviour
 {
-    
-    
-    List<Score> scores = new List<Score>();
-    private ScoreSort sort = new ScoreSort();
-    int playerScore;
-
     [SerializeField]
-    TextAsset scoreFile;
+    private TextAsset scoreFile;
+    [SerializeField]
+    private GameObject canvas;
+    
+    private List<Score> scores = new List<Score>();
+    private ScoreSort sort = new ScoreSort();
+    private int playerScore;
 
-    void Start()
+    void Awake()
     {
         // JsonUtility can't read lists, so we've got to make each line its own json object to process
         string[] jsonObjects = scoreFile.text.Split('\n');
@@ -32,8 +31,23 @@ public class HighScore : MonoBehaviour
         // Added a null check for testing purposes. We can start the score scene without having a PlayerController carrying over from previous scenes
         PlayerController playerController = GetComponent<PlayerController>();
         playerScore = playerController == null ? 0 : playerController.getScore();
-        Debug.Log("Is player high scoring?: " + isPlayerHighScoring(scores, playerScore));
+        if(isPlayerHighScoring(scores, playerScore))
+        {
+            // Logic for showing & actiavting the initials input goes here. On that input block, it should clean itself up and call display scores
+        }else
+        {
+            displayScores();
+        }
     }
+
+    #region display high scores
+    private void displayScores()
+    {
+        canvas.gameObject.SetActive(true);
+        canvas.gameObject.GetComponent<HighScoreList>().populateTable(scores);
+    }
+
+    #endregion
 
     public static Boolean isPlayerHighScoring(List<Score> toCheck, int myScore)
     {
@@ -49,8 +63,8 @@ public class HighScore : MonoBehaviour
         scores.Add(new Score(score, initials));
     }
 
-
-    private void writeHighScores(List<Score> newScores)
+    #region output to file
+    private void writeHighScoresToFile(List<Score> newScores)
     {
         StringBuilder json = new StringBuilder();
         foreach(Score s in newScores)
@@ -64,7 +78,7 @@ public class HighScore : MonoBehaviour
         writer.WriteLine(json.ToString());
         writer.Close();
     }
-
+    #endregion
 }
 
 [Serializable]
@@ -79,7 +93,6 @@ public class Score
         this.initials = initials;
     }
 }
-
 
 public class ScoreSort : IComparer<Score>
 {
