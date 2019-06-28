@@ -9,14 +9,19 @@ public class HighScore : MonoBehaviour
     [SerializeField]
     private TextAsset scoreFile;
     [SerializeField]
-    private GameObject canvas;
+    private GameObject highScoreDisplayObject;
+    [SerializeField]
+    private AnyKeyChangeScene anyKeyChangeSceneObject;
+    [SerializeField]
+    private GameObject initialsInputObject;
     
     private List<Score> scores = new List<Score>();
-    private ScoreSort sort = new ScoreSort();
     private int playerScore;
+    private string playerID;
 
     void Awake()
     {
+        playerID = System.DateTime.Now.ToString();
         // JsonUtility can't read lists, so we've got to make each line its own json object to process
         string[] jsonObjects = scoreFile.text.Split('\n');
         for(int i = 0 ; i < jsonObjects.Length ; i++)
@@ -30,37 +35,40 @@ public class HighScore : MonoBehaviour
 
         // Added a null check for testing purposes. We can start the score scene without having a PlayerController carrying over from previous scenes
         PlayerController playerController = GetComponent<PlayerController>();
-        playerScore = playerController == null ? 0 : playerController.getScore();
-        if(isPlayerHighScoring(scores, playerScore))
+        playerScore = playerController == null ? 999 : playerController.getScore();
+
+        addNewScore(playerScore, "Hey look, I'm in the middle!", playerID);
+        writeHighScoresToFile(scores);
+        int playerPos = getPlayerPosition(scores, playerID);
+        displayScores(playerPos);
+        
+    }
+
+    private void displayScores(int playerPosition)
+    {
+        highScoreDisplayObject.SetActive(true);
+        HighScoreList listScript = highScoreDisplayObject.GetComponent<HighScoreList>();
+        listScript.playerPosition = playerPosition;
+        listScript.populateTable(scores);
+        anyKeyChangeSceneObject.gameObject.SetActive(true);
+    }
+
+    private void addNewScore(int score, string initials, string playerID)
+    {
+        scores.Add(new Score(score, initials, playerID));
+    }
+
+    private int getPlayerPosition(List<Score> scores, string ID)
+    {
+        scores.Sort(new ScoreSort());
+        for(int i = 0 ; i < scores.Count ; i++)
         {
-            // Logic for showing & actiavting the initials input goes here. On that input block, it should clean itself up and call display scores
-        }else
-        {
-            displayScores();
+            if(scores[i].time == ID)
+            {
+                return i;
+            }
         }
-    }
-
-    #region display high scores
-    private void displayScores()
-    {
-        canvas.gameObject.SetActive(true);
-        canvas.gameObject.GetComponent<HighScoreList>().populateTable(scores);
-    }
-
-    #endregion
-
-    public static Boolean isPlayerHighScoring(List<Score> toCheck, int myScore)
-    {
-        toCheck.Sort(new ScoreSort());
-        return myScore > toCheck[toCheck.Count -1].score;
-    }
-
-    public void addNewScore(int score, string initials)
-    {
-        scores.Sort(sort);
-        // Remove the lowest score before adding
-        scores.RemoveAt(scores.Count - 1);
-        scores.Add(new Score(score, initials));
+        return scores.Count;
     }
 
     #region output to file
@@ -86,11 +94,13 @@ public class Score
 {
     public int score;
     public string initials;
+    public string time;
 
-    public Score(int value, string initials)
+    public Score(int value, string initials, string time)
     {
         this.score = value;
         this.initials = initials;
+        this.time = time;
     }
 }
 
