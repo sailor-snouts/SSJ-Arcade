@@ -1,17 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
     private int score;
     private int combo;
     private float multiplier = 1f;
-    [SerializeField]
-    TextMeshProUGUI scoreText;
-    [SerializeField]
-    TextMeshProUGUI comboText;
 
     void Start()
     {
@@ -21,6 +16,20 @@ public class ScoreController : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public int GetCombo()
+    {
+        return this.combo;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 1)
+        {
+            this.score = 0;
+            this.combo = 0;
+        }
     }
 
     public void ScoreUp(int hit)
@@ -41,11 +50,5 @@ public class ScoreController : MonoBehaviour
     public void ComboBreak()
     {
         this.combo = 0;
-    }
-
-    private void OnGUI()
-    {
-        this.scoreText.SetText("{0}", this.score);
-        this.comboText.SetText("{0}", this.combo);
     }
 }

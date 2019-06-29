@@ -10,22 +10,17 @@ PrefabInstance:
     - target: {fileID: 5078922819085777241, guid: 82dba9c673ee3754eaa0393ba782b50d,
         type: 3}
       propertyPath: m_Name
-      value: Note
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 5078922819085777241, guid: 82dba9c673ee3754eaa0393ba782b50d,
         type: 3}
       propertyPath: m_TagString
       value: EndNote
       objectReference: {fileID: 0}
-    - target: {fileID: 4332292236440691582, guid: 82dba9c673ee3754eaa0393ba782b50d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6560343572801289671, guid: 82dba9c673ee3754eaa0393ba782b50d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6560343572801289671, guid: 82dba9c673ee3754eaa0393ba782b50d,
         type: 3}
@@ -75,6 +70,11 @@ PrefabInstance:
     - target: {fileID: 6560343572801289671, guid: 82dba9c673ee3754eaa0393ba782b50d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332292236440691582, guid: 82dba9c673ee3754eaa0393ba782b50d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

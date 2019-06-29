@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     {
         int hit = 0;
 
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            SceneChange scenechange = FindObjectOfType<SceneChange>();
+            scenechange.FadeToLevel("Title");
+        }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Q))
         {
             hit = this.redPickup.PlayNote();

@@ -1005,6 +1005,18 @@ Transform:
   m_Father: {fileID: 1606529539}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &669383630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8474130943868798170, guid: ae9bea81e3582724a9efee1be4169b15,
+    type: 3}
+  m_PrefabInstance: {fileID: 8474130944625954854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8252ee51d400b0b478873b72bc30ff6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &711611810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b699823c3082d428699955257fa21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
+  score: {fileID: 669383630}
   redPickup: {fileID: 834043038}
   greenPickup: {fileID: 631970435}
   bluePickup: {fileID: 1116281299}
@@ -3083,6 +3095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1950520269}
+  - component: {fileID: 1950520270}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3106,6 +3119,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1950520270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950520268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1e6c90351a3c842a43399ada1cf09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1437642055}
+  comboText: {fileID: 1252149344}
 --- !u!1 &1973526196
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,10 +42,15 @@ public class Pickup : MonoBehaviour
                     i--;
                 }
             }
-            if (collision.gameObject.GetComponent<BoxCollider2D>().enabled)
+            if (collision.gameObject.GetComponent<NoteController>().speed > 0)
             {
                 this.beam.SetTrigger("Miss");
             }
+        }
+        if (collision.gameObject.tag == "EndNote")
+        {
+            SceneChange sceneChange = FindObjectOfType<SceneChange>();
+            sceneChange.FadeToLevel("Score");
         }
     }
 
