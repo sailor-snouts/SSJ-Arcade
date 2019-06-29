@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class HighScoreNewScore : MonoBehaviour
 {
-    HighScore highScoreScript;
     private string initials = "";
+    // Change this value to the key to confirm initial selection
     private string nextButton = "Fire1";
+    // List of valid characters
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.-?!+*(=)";
     private int stepper = 0;
     private int letterSelect = 0;
@@ -19,13 +20,12 @@ public class HighScoreNewScore : MonoBehaviour
 
     void Awake()
     {   
-        // ADD PULL FROM PERSISTED SCORE CLASS HERE, SET playerScore
-        highScoreScript = FindObjectOfType<HighScore>();       
+        // ADD PULL FROM PERSISTED SCORE CLASS HERE, SET playerScore WITH IT    
     }
 
     void completeScoreAndContinue(Score playersScore) 
     {
-        highScoreScript.recordScoreAndContinue(playersScore);
+        FindObjectOfType<HighScore>().recordScoreAndContinue(playersScore);
         Destroy(gameObject);
     }
     void Start ()
