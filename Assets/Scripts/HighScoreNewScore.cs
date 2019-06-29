@@ -25,7 +25,6 @@ public class HighScoreNewScore : MonoBehaviour
 
     void completeScoreAndContinue(Score playersScore) 
     {
-        playersScore.initials = initials;
         highScoreScript.recordScoreAndContinue(playersScore);
         Destroy(gameObject);
     }
