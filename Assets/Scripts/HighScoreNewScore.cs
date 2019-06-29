@@ -15,9 +15,11 @@ public class HighScoreNewScore : MonoBehaviour
     public float moveDelay = 1.0f;
     private bool readyToMove = true;
     private Color selectedColor = Color.yellow;
+    private int playerScore = 0;
 
     void Awake()
     {   
+        // ADD PULL FROM PERSISTED SCORE CLASS HERE, SET playerScore
         highScoreScript = FindObjectOfType<HighScore>();       
     }
 
@@ -58,7 +60,7 @@ public class HighScoreNewScore : MonoBehaviour
                         // if the last letter is reached then add initials
                         if (letterSelect == Letters.Length - 1) {
                                 letterSelect = 3; // breaks loop then sets name
-                                completeScoreAndContinue(new Score(5837, initials, System.DateTime.Now.ToString()));
+                                completeScoreAndContinue(new Score(playerScore, initials, System.DateTime.Now.ToString()));
                         }
                         // keep on till the very last letter
                         if (letterSelect < Letters.Length - 1) {
