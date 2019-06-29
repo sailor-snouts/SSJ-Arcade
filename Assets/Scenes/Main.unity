@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497790491}
   - component: {fileID: 497790490}
+  - component: {fileID: 497790492}
   m_Layer: 0
   m_Name: egg
   m_TagString: Untagged
@@ -325,12 +326,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497790489}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.787126, y: 3.1289916, z: 5.364442}
+  m_LocalPosition: {x: 8.6, y: 2.4, z: 5.364442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156193050}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &497790492
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497790489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d8beb41f37a348208151063f9d77b14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Score
 --- !u!61 &631970436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,7 +1085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Score
 --- !u!1 &891005384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Score
 --- !u!212 &894624158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1553,7 +1570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Score
 --- !u!1 &1128439038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74b648a187df744879b879cd72925a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Score
 --- !u!1 &1386515905
 GameObject:
   m_ObjectHideFlags: 0
