@@ -40,17 +40,23 @@ public class HighScoreNewScore : MonoBehaviour
         if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("up") && readyToMove) {
                 if (stepper < alphabet.Length - 1) {
                         stepper++;
-                        Letters [letterSelect].text = alphabet [stepper].ToString ();
-                        readyToMove = false;
-                        Invoke ("ResetReadyToMove", moveDelay);
+                        letterChange();
+                } else {
+                        if(stepper == alphabet.Length - 1) {
+                                stepper = 0;
+                                letterChange();
+                        }
                 }
         }
         if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("down") && readyToMove) {
             if (stepper > 0) {
                 stepper--;
-                Letters [letterSelect].text = alphabet [stepper].ToString ();
-                        readyToMove = false;
-                        Invoke ("ResetReadyToMove", moveDelay);
+                letterChange();
+                } else {
+                        if(stepper == 0) {
+                                stepper = alphabet.Length - 1;
+                                letterChange();
+                        }
                 }
         }
         if (Input.GetButton (nextButton) && readyToMove) {
@@ -72,6 +78,13 @@ public class HighScoreNewScore : MonoBehaviour
                         stepper = 0; // stepper is reset for next run
                 }
         }
+    }
+
+    void letterChange() 
+    {
+        Letters [letterSelect].text = alphabet [stepper].ToString ();
+        readyToMove = false;
+        Invoke ("ResetReadyToMove", moveDelay);
     }
  
     void ResetReadyToMove ()
