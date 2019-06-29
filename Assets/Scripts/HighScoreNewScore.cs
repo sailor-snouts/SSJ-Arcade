@@ -16,11 +16,20 @@ public class HighScoreNewScore : MonoBehaviour
     public float moveDelay = 1.0f;
     private bool readyToMove = true;
     private Color selectedColor = Color.yellow;
+    [SerializeField]
     private int playerScore = 0;
 
     void Awake()
-    {   
-        // ADD PULL FROM PERSISTED SCORE CLASS HERE, SET playerScore WITH IT    
+    {
+        ScoreController score = FindObjectOfType<ScoreController>();
+        if (score != null)
+        {
+            this.playerScore = score.GetScore();
+        }
+        else
+        {
+            this.playerScore = Random.Range(500, 10000);
+        }
     }
 
     void completeScoreAndContinue(Score playersScore) 
