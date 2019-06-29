@@ -37,7 +37,7 @@ public class HighScoreNewScore : MonoBehaviour
 
     void Update ()
     {
-        if (Input.GetKey ("up") && readyToMove) {
+        if ((Input.GetKey ("up") || Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.E)) && readyToMove) {
                 if (stepper < alphabet.Length - 1) {
                         stepper++;
                         letterChange();
@@ -48,7 +48,7 @@ public class HighScoreNewScore : MonoBehaviour
                         }
                 }
         }
-        if (Input.GetKey ("down") && readyToMove) {
+        if ((Input.GetKey ("down") || Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.R) ) && readyToMove) {
             if (stepper > 0) {
                 stepper--;
                 letterChange();
@@ -59,7 +59,7 @@ public class HighScoreNewScore : MonoBehaviour
                         }
                 }
         }
-        if (Input.GetButton (nextButton) && readyToMove) {
+        if ((Input.GetButton (nextButton) || Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Q)) && readyToMove) {
                 if (letterSelect <= Letters.Length - 1) {
                         initials = initials + alphabet [stepper].ToString (); // add current letter to string
                         // if the last letter is reached then add initials
