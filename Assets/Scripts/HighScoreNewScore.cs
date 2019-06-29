@@ -22,6 +22,10 @@ public class HighScoreNewScore : MonoBehaviour
         }
     }
 
+    public void addInitial(Character c) {
+        initials.Concat(c);
+    }
+
     void completeScoreAndContinue(Score playersScore) {
         // Uncomment this before enabling!
         //playersScore.initials = initials;
