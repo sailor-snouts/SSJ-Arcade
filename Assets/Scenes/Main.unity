@@ -941,8 +941,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 63da85a467f03f045999dce5f61ea22c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 17ae6a2d037730d4586e7f1fb04ef720, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.17274213, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -962,7 +962,7 @@ Animator:
   m_GameObject: {fileID: 651303940}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52879fa4dfbacb643ac9faa694564230, type: 2}
+  m_Controller: {fileID: 22100000, guid: 5d5d070c44c77254fb7f899b5c50a9c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1366,8 +1366,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 147f71f1a68d80647a83094dc3f1c326, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 17ae6a2d037730d4586e7f1fb04ef720, type: 3}
+  m_Color: {r: 1, g: 0.2216981, b: 0.8745284, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2898,8 +2898,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cdacb67407d0d6646af1dfb3ac5f2193, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 17ae6a2d037730d4586e7f1fb04ef720, type: 3}
+  m_Color: {r: 0, g: 0.9672265, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2919,7 +2919,7 @@ Animator:
   m_GameObject: {fileID: 1787246053}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52879fa4dfbacb643ac9faa694564230, type: 2}
+  m_Controller: {fileID: 22100000, guid: 6a2b70908fcaf6e4da7147ff9c38749e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3268,8 +3268,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e4825a97bce8e8948a074f82e7fa0b2f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 17ae6a2d037730d4586e7f1fb04ef720, type: 3}
+  m_Color: {r: 0.99178326, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3289,7 +3289,7 @@ Animator:
   m_GameObject: {fileID: 2010610364}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52879fa4dfbacb643ac9faa694564230, type: 2}
+  m_Controller: {fileID: 22100000, guid: 9eafb4696184ebf4c95a51e4ec4b351f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
