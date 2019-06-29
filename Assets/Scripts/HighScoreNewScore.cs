@@ -37,7 +37,7 @@ public class HighScoreNewScore : MonoBehaviour
 
     void Update ()
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("up") && readyToMove) {
+        if (Input.GetKey ("up") && readyToMove) {
                 if (stepper < alphabet.Length - 1) {
                         stepper++;
                         letterChange();
@@ -48,7 +48,7 @@ public class HighScoreNewScore : MonoBehaviour
                         }
                 }
         }
-        if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("down") && readyToMove) {
+        if (Input.GetKey ("down") && readyToMove) {
             if (stepper > 0) {
                 stepper--;
                 letterChange();
