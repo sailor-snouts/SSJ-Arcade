@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
     {
         int hit = 0;
 
-        if(missedPickup.PlayNote() != 0)
-        {
-            this.score.ComboBreak();
-        }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Q))
         {
             hit = this.redPickup.PlayNote();

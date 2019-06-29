@@ -35,25 +35,25 @@ public class NoteGenerator : MonoBehaviour
         {
             if(lines[i][0] == '1')
             {
-                GameObject red = Instantiate(this.GetRandRune(), this.redNoteSpawn);
+                GameObject red = Instantiate(this.runes[0], this.redNoteSpawn);
                 red.GetComponent<NoteController>().speed = this.velocity;
                 red.transform.position += Vector3.up * i * offset;
             }
             if (lines[i][1] == '1')
             {
-                GameObject green = Instantiate(this.GetRandRune(), this.greenNoteSpawn);
+                GameObject green = Instantiate(this.runes[1], this.greenNoteSpawn);
                 green.GetComponent<NoteController>().speed = this.velocity;
                 green.transform.position += Vector3.up * i * offset;
             }
             if (lines[i][2] == '1')
             {
-                GameObject blue = Instantiate(this.GetRandRune(), this.blueNoteSpawn);
+                GameObject blue = Instantiate(this.runes[2], this.blueNoteSpawn);
                 blue.GetComponent<NoteController>().speed = this.velocity;
                 blue.transform.position += Vector3.up * i * offset;
             }
             if (lines[i][3] == '1')
             {
-                GameObject yellow = Instantiate(this.GetRandRune(), this.yellowNoteSpawn);
+                GameObject yellow = Instantiate(this.runes[3], this.yellowNoteSpawn);
                 yellow.GetComponent<NoteController>().speed = this.velocity;
                 yellow.transform.position += Vector3.up * i * offset;
             }
@@ -62,10 +62,5 @@ public class NoteGenerator : MonoBehaviour
         GameObject end = Instantiate(this.endNote, this.redNoteSpawn);
         end.GetComponent<NoteController>().speed = this.velocity;
         end.transform.position += Vector3.up * i * offset;
-    }
-
-    GameObject GetRandRune()
-    {
-        return this.runes[Random.Range(0, this.runes.Length)];
     }
 }
