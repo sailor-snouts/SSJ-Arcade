@@ -16,7 +16,6 @@ public class HighScore : MonoBehaviour
     private List<Score> scores = new List<Score>();
 
     // These two go out with the block in Awake().
-    private int playerScore;
     private string playerID;
 
     void Awake()
@@ -32,13 +31,6 @@ public class HighScore : MonoBehaviour
             Score s = JsonUtility.FromJson<Score>(jsonObjects[i]);
             scores.Add(s);
         }
-
-        // This next part is probably all temporary. I'd bet we should just call "recordScoreAndContinue" from the input script that makes a score
-        // Added a null check for testing purposes. We can start the score scene without having a PlayerController carrying over from previous scenes
-        playerID = System.DateTime.Now.ToString();
-        PlayerController playerController = GetComponent<PlayerController>();
-        playerScore = playerController == null ? 999 : playerController.getScore();
-        //recordScoreAndContinue(new Score(playerScore, "Bobert Jenkins", playerID));
     }
 
     public void recordScoreAndContinue(Score s) {
