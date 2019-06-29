@@ -12,8 +12,6 @@ public class HighScore : MonoBehaviour
     private GameObject highScoreDisplayObject;
     [SerializeField]
     private AnyKeyChangeScene anyKeyChangeSceneObject;
-    [SerializeField]
-    private GameObject initialsInputObject;
     
     private List<Score> scores = new List<Score>();
 
