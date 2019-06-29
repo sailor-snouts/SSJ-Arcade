@@ -16,12 +16,14 @@ public class HighScore : MonoBehaviour
     private GameObject initialsInputObject;
     
     private List<Score> scores = new List<Score>();
+
+    // These two go out with the block in Awake().
     private int playerScore;
     private string playerID;
 
     void Awake()
     {
-        playerID = System.DateTime.Now.ToString();
+        
         // JsonUtility can't read lists, so we've got to make each line its own json object to process
         string[] jsonObjects = scoreFile.text.Split('\n');
         for(int i = 0 ; i < jsonObjects.Length ; i++)
@@ -33,15 +35,19 @@ public class HighScore : MonoBehaviour
             scores.Add(s);
         }
 
+        // This next part is probably all temporary. I'd bet we should just call "recordScoreAndContinue" from the input script that makes a score
         // Added a null check for testing purposes. We can start the score scene without having a PlayerController carrying over from previous scenes
+        playerID = System.DateTime.Now.ToString();
         PlayerController playerController = GetComponent<PlayerController>();
         playerScore = playerController == null ? 999 : playerController.getScore();
+        //recordScoreAndContinue(new Score(playerScore, "Bobert Jenkins", playerID));
+    }
 
-        addNewScore(playerScore, "Hey look, I'm in the middle!", playerID);
+    public void recordScoreAndContinue(Score s) {
+        scores.Add(s);
         writeHighScoresToFile(scores);
-        int playerPos = getPlayerPosition(scores, playerID);
+        int playerPos = getPlayerPosition(scores, s.id);
         displayScores(playerPos);
-        
     }
 
     private void displayScores(int playerPosition)
@@ -53,17 +59,12 @@ public class HighScore : MonoBehaviour
         anyKeyChangeSceneObject.gameObject.SetActive(true);
     }
 
-    private void addNewScore(int score, string initials, string playerID)
-    {
-        scores.Add(new Score(score, initials, playerID));
-    }
-
     private int getPlayerPosition(List<Score> scores, string ID)
     {
         scores.Sort(new ScoreSort());
         for(int i = 0 ; i < scores.Count ; i++)
         {
-            if(scores[i].time == ID)
+            if(scores[i].id == ID)
             {
                 return i;
             }
@@ -94,13 +95,13 @@ public class Score
 {
     public int score;
     public string initials;
-    public string time;
+    public string id;
 
     public Score(int value, string initials, string time)
     {
         this.score = value;
         this.initials = initials;
-        this.time = time;
+        this.id = time;
     }
 }
 
