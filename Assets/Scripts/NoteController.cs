@@ -24,6 +24,7 @@ public class NoteController : MonoBehaviour
     {
         this.anim.SetTrigger("Hit");
         this.box.enabled = false;
+        this.speed = 0;
     }
 
     public void Die()
