@@ -35,7 +35,7 @@ public class HighScore : MonoBehaviour
 
     public void recordScoreAndContinue(Score s) {
         scores.Add(s);
-        writeScoreToFile(s);
+        writeHighScoresToFile(scores);
         int playerPos = getPlayerPosition(scores, s.id);
         displayScores(playerPos);
     }
@@ -63,10 +63,18 @@ public class HighScore : MonoBehaviour
     }
 
     #region output to file
-    private void writeScoreToFile(Score newScore)
+    private void writeHighScoresToFile(List<Score> newScores)
     {
-        StreamWriter writer = new StreamWriter("Assets/Scores/scores.json", true);
-        writer.WriteLine(JsonUtility.ToJson(newScore));
+        StringBuilder json = new StringBuilder();
+        foreach(Score s in newScores)
+            {
+            json.AppendLine(JsonUtility.ToJson(s));
+            }
+        Debug.Log(json.ToString());
+       
+        // False here overwrites the file instead of appending to it
+        StreamWriter writer = new StreamWriter("Assets/Scores/scores.json", false);
+        writer.WriteLine(json.ToString());
         writer.Close();
     }
     #endregion
