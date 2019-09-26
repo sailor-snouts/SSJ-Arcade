@@ -22,9 +22,8 @@ public class NoteController : MonoBehaviour
 
     public void Pulse()
     {
-        this.anim.SetTrigger("Hit");
-        this.box.enabled = false;
         this.speed = 0;
+        this.anim.SetTrigger("Hit");
     }
 
     public void Die()

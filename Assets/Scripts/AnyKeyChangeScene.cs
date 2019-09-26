@@ -13,7 +13,7 @@ public class AnyKeyChangeScene : MonoBehaviour
     [SerializeField]
     private AudioClip selectSFX;
 
-    private void Start()
+    private void Awake()
     {
         this.sceneChange = FindObjectOfType<SceneChange>();
         this.audio = FindObjectOfType<AudioSource>();

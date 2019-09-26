@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class HighScoreNewScore : MonoBehaviour
 {
-    HighScore highScoreScript;
     private string initials = "";
+    // Change this value to the key to confirm initial selection
     private string nextButton = "Fire1";
+    // List of valid characters
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.-?!+*(=)";
     private int stepper = 0;
     private int letterSelect = 0;
@@ -15,16 +16,25 @@ public class HighScoreNewScore : MonoBehaviour
     public float moveDelay = 1.0f;
     private bool readyToMove = true;
     private Color selectedColor = Color.yellow;
+    [SerializeField]
+    private int playerScore = 0;
 
     void Awake()
-    {   
-        highScoreScript = FindObjectOfType<HighScore>();       
+    {
+        ScoreController score = FindObjectOfType<ScoreController>();
+        if (score != null)
+        {
+            this.playerScore = score.GetScore();
+        }
+        else
+        {
+            this.playerScore = Random.Range(500, 10000);
+        }
     }
 
     void completeScoreAndContinue(Score playersScore) 
     {
-        playersScore.initials = initials;
-        highScoreScript.recordScoreAndContinue(playersScore);
+        FindObjectOfType<HighScore>().recordScoreAndContinue(playersScore);
         Destroy(gameObject);
     }
     void Start ()
@@ -36,29 +46,35 @@ public class HighScoreNewScore : MonoBehaviour
 
     void Update ()
     {
-        if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("up") && readyToMove) {
+        if ((Input.GetKey ("up") || Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.E)) && readyToMove) {
                 if (stepper < alphabet.Length - 1) {
                         stepper++;
-                        Letters [letterSelect].text = alphabet [stepper].ToString ();
-                        readyToMove = false;
-                        Invoke ("ResetReadyToMove", moveDelay);
+                        letterChange();
+                } else {
+                        if(stepper == alphabet.Length - 1) {
+                                stepper = 0;
+                                letterChange();
+                        }
                 }
         }
-        if (SystemInfo.deviceType == DeviceType.Handheld && readyToMove || Input.GetKey ("down") && readyToMove) {
+        if ((Input.GetKey ("down") || Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKey(KeyCode.R) ) && readyToMove) {
             if (stepper > 0) {
                 stepper--;
-                Letters [letterSelect].text = alphabet [stepper].ToString ();
-                        readyToMove = false;
-                        Invoke ("ResetReadyToMove", moveDelay);
+                letterChange();
+                } else {
+                        if(stepper == 0) {
+                                stepper = alphabet.Length - 1;
+                                letterChange();
+                        }
                 }
         }
-        if (Input.GetButton (nextButton) && readyToMove) {
+        if ((Input.GetButton (nextButton) || Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Q)) && readyToMove) {
                 if (letterSelect <= Letters.Length - 1) {
                         initials = initials + alphabet [stepper].ToString (); // add current letter to string
                         // if the last letter is reached then add initials
                         if (letterSelect == Letters.Length - 1) {
                                 letterSelect = 3; // breaks loop then sets name
-                                completeScoreAndContinue(new Score(5837, initials, System.DateTime.Now.ToString()));
+                                completeScoreAndContinue(new Score(playerScore, initials, System.DateTime.Now.ToString()));
                         }
                         // keep on till the very last letter
                         if (letterSelect < Letters.Length - 1) {
@@ -71,6 +87,13 @@ public class HighScoreNewScore : MonoBehaviour
                         stepper = 0; // stepper is reset for next run
                 }
         }
+    }
+
+    void letterChange() 
+    {
+        Letters [letterSelect].text = alphabet [stepper].ToString ();
+        readyToMove = false;
+        Invoke ("ResetReadyToMove", moveDelay);
     }
  
     void ResetReadyToMove ()

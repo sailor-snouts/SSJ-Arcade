@@ -7,6 +7,8 @@ public class Pickup : MonoBehaviour
     private List<GameObject> notes;
     private SceneChange sceneChange;
     [SerializeField]
+    private Animator beam;
+    [SerializeField]
     private string nextScene = "Score";
 
     private void Start()
@@ -40,6 +42,15 @@ public class Pickup : MonoBehaviour
                     i--;
                 }
             }
+            if (collision.gameObject.GetComponent<NoteController>().speed > 0)
+            {
+                this.beam.SetTrigger("Miss");
+            }
+        }
+        if (collision.gameObject.tag == "EndNote")
+        {
+            SceneChange sceneChange = FindObjectOfType<SceneChange>();
+            sceneChange.FadeToLevel("Score");
         }
     }
 
@@ -60,9 +71,11 @@ public class Pickup : MonoBehaviour
             // perfect hit
             if(dist < 0.1f)
             {
+                this.beam.SetTrigger("Hit");
                 return 2;
             }
-            
+
+            this.beam.SetTrigger("Hit");
             return 1;
         }
 
