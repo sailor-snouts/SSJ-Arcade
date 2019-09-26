@@ -349,9 +349,6 @@ Transform:
   m_Father: {fileID: 1950520269}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!1 &180541687
-=======
 --- !u!1 &317544040
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +429,6 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &368867585
->>>>>>> cef676946f45a955e69a59cdddab10e9696c9520
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,7 +469,6 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180541687}
   m_Enabled: 1
-<<<<<<< HEAD
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d8beb41f37a348208151063f9d77b14, type: 2}
   m_CullingMode: 0
@@ -485,7 +480,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &180541690
-=======
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b690054ba6168c48a748bc4322d1692, type: 3}
   m_Name: 
@@ -520,7 +514,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!212 &497790490
->>>>>>> cef676946f45a955e69a59cdddab10e9696c9520
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
