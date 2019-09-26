@@ -18,6 +18,8 @@ public class NoteGenerator : MonoBehaviour
     private Transform yellowNoteSpawn;
     [SerializeField]
     private TextAsset notesDataFile;
+    [SerializeField]
+    private float offset = 0.6f;
 
     private float bpm = 60;
     private float velocity = 10;
@@ -36,26 +38,27 @@ public class NoteGenerator : MonoBehaviour
             if(lines[i][0] == '1')
             {
                 GameObject red = Instantiate(this.runes[0], this.redNoteSpawn);
+                red.name += " " + i;
                 red.GetComponent<NoteController>().speed = this.velocity;
-                red.transform.position += Vector3.up * i * offset;
+                red.transform.position += Vector3.up * i * offset + new Vector3(0, this.offset, 0);
             }
             if (lines[i][1] == '1')
             {
                 GameObject green = Instantiate(this.runes[1], this.greenNoteSpawn);
                 green.GetComponent<NoteController>().speed = this.velocity;
-                green.transform.position += Vector3.up * i * offset;
+                green.transform.position += Vector3.up * i * offset + new Vector3(0, this.offset, 0);
             }
             if (lines[i][2] == '1')
             {
                 GameObject blue = Instantiate(this.runes[2], this.blueNoteSpawn);
                 blue.GetComponent<NoteController>().speed = this.velocity;
-                blue.transform.position += Vector3.up * i * offset;
+                blue.transform.position += Vector3.up * i * offset + new Vector3(0, this.offset, 0);
             }
             if (lines[i][3] == '1')
             {
                 GameObject yellow = Instantiate(this.runes[3], this.yellowNoteSpawn);
                 yellow.GetComponent<NoteController>().speed = this.velocity;
-                yellow.transform.position += Vector3.up * i * offset;
+                yellow.transform.position += Vector3.up * i * offset + new Vector3(0, this.offset, 0);
             }
         }
 

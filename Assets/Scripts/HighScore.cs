@@ -12,6 +12,9 @@ public class HighScore : MonoBehaviour
     private GameObject highScoreDisplayObject;
     [SerializeField]
     private AnyKeyChangeScene anyKeyChangeSceneObject;
+
+    [SerializeField] private float autoEndIn = 5f;
+    [SerializeField] private SceneChange sceneChange;
     
     private List<Score> scores = new List<Score>();
 
@@ -20,7 +23,6 @@ public class HighScore : MonoBehaviour
 
     void Awake()
     {
-        
         // JsonUtility can't read lists, so we've got to make each line its own json object to process
         string[] jsonObjects = scoreFile.text.Split('\n');
         for(int i = 0 ; i < jsonObjects.Length ; i++)
@@ -30,6 +32,15 @@ public class HighScore : MonoBehaviour
             if(json.Length <= 1) break;
             Score s = JsonUtility.FromJson<Score>(jsonObjects[i]);
             scores.Add(s);
+        }
+    }
+
+    private void Update()
+    {
+        this.autoEndIn -= Time.deltaTime;
+        if (this.autoEndIn < 0f)
+        {
+            this.sceneChange.FadeToLevel("Title");
         }
     }
 

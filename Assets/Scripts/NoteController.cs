@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class NoteController : MonoBehaviour
 {
+    public bool hit = false;
     public float speed = 1f;
     private Animator anim;
     private BoxCollider2D box;
@@ -22,6 +23,7 @@ public class NoteController : MonoBehaviour
 
     public void Pulse()
     {
+        this.hit = true;
         this.speed = 0;
         this.anim.SetTrigger("Hit");
     }

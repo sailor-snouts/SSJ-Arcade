@@ -10,6 +10,8 @@ public class Pickup : MonoBehaviour
     private Animator beam;
     [SerializeField]
     private string nextScene = "Score";
+    [SerializeField]
+    ScoreController score;
 
     private void Start()
     {
@@ -42,10 +44,6 @@ public class Pickup : MonoBehaviour
                     i--;
                 }
             }
-            if (collision.gameObject.GetComponent<NoteController>().speed > 0)
-            {
-                this.beam.SetTrigger("Miss");
-            }
         }
         if (collision.gameObject.tag == "EndNote")
         {
@@ -63,7 +61,8 @@ public class Pickup : MonoBehaviour
             for (int i = 0; i < this.notes.Count; i++)
             {
                 dist = Vector2.Distance(this.gameObject.transform.position, this.notes[i].gameObject.transform.position);
-                this.notes[i].GetComponent<NoteController>().Pulse();
+                NoteController note = this.notes[i].GetComponent<NoteController>();
+                note.Pulse();
             }
 
             this.notes = new List<GameObject>();

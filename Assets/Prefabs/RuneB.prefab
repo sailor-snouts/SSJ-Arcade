@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 660174105929641718}
   - component: {fileID: 929034830012257285}
   - component: {fileID: 4037557585622978581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RuneB
   m_TagString: Note
   m_Icon: {fileID: 0}
@@ -60,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda96dfcf30520d46b8ed755146c7e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit: 0
   speed: 10
 --- !u!50 &929034830012257285
 Rigidbody2D:

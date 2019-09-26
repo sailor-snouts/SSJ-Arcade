@@ -18,13 +18,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Pickup missedPickup;
 
+    private AudioSource audio;
+    private bool startedPlaying = false;
+
     private void Start()
     {
         this.score = FindObjectOfType<ScoreController>();
+        this.audio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        if (!this.startedPlaying)
+        {
+            this.startedPlaying = true;
+            this.audio.Play();
+        }
         int hit = 0;
 
         if(Input.GetKey(KeyCode.Escape))
