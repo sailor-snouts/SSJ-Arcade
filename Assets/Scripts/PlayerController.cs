@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
                 this.score.ScoreUp(hit);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.W))
         {
             hit = this.greenPickup.PlayNote();
             if (hit > 0)

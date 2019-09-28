@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\diabo\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -224,6 +224,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AnyKeyChangeScene.cs" t="Include" />
+          <e p="ComboReset.cs" t="Include" />
           <e p="HighScore.cs" t="Include" />
           <e p="HighScoreList.cs" t="Include" />
           <e p="HighScoreNewScore.cs" t="Include" />
