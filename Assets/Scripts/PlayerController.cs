@@ -5,18 +5,13 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    ScoreController score;
-    [SerializeField]
-    private Pickup redPickup;
-    [SerializeField]
-    private Pickup greenPickup;
-    [SerializeField]
-    private Pickup bluePickup;
-    [SerializeField]
-    private Pickup yellowPickup;
-    [SerializeField]
-    private Pickup missedPickup;
+    [SerializeField] ScoreController score;
+    [SerializeField] private Pickup redPickup;
+    [SerializeField] private Pickup greenPickup;
+    [SerializeField] private Pickup bluePickup;
+    [SerializeField] private Pickup yellowPickup;
+    [SerializeField] private Animator eggAnimator;
+    [SerializeField] private Animator pentagramAnimator;
 
     private AudioSource audio;
     private bool startedPlaying = false;
@@ -43,35 +38,26 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Q))
         {
-            hit = this.redPickup.PlayNote();
-            if (hit > 0)
-            {
-                this.score.ScoreUp(hit);
-            }
+            if (this.redPickup.PlayNote() > 0) this.Hit();
         }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.W))
         {
-            hit = this.greenPickup.PlayNote();
-            if (hit > 0)
-            {
-                this.score.ScoreUp(hit);
-            }
+            if (this.greenPickup.PlayNote() > 0) this.Hit();
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.E))
         {
-            hit = this.bluePickup.PlayNote();
-            if (hit > 0)
-            {
-                this.score.ScoreUp(hit);
-            }
+            if (this.bluePickup.PlayNote() > 0) this.Hit();
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.R))
         {
-            hit = this.yellowPickup.PlayNote();
-            if (hit > 0)
-            {
-                this.score.ScoreUp(hit);
-            }
+            if (this.yellowPickup.PlayNote() > 0) this.Hit();
         }
+    }
+
+    private void Hit()
+    {
+        this.score.ScoreUp(1);
+        this.eggAnimator.SetTrigger("Hit");
+        this.pentagramAnimator.SetTrigger("Hit");
     }
 }
