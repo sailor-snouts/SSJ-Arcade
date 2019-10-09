@@ -50,8 +50,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.2
         value: 1
-        inSlope: -3
-        outSlope: -3
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -142,8 +142,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.2
         value: 1
-        inSlope: -3
-        outSlope: -3
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
